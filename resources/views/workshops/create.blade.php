@@ -24,7 +24,7 @@
                   </div>
                 @endif
 
-                 <form method="POST" action="{{route('create_workshop')}}">
+                 <form method="POST" action="{{route('create_workshop')}}" enctype="multipart/form-data">
                     <input type="hidden" name="_token" value="{{ csrf_token() }}">
                     
                     <div class="form-group {{ $errors->has('name') ? ' has-errors' : '' }}">
@@ -65,7 +65,7 @@
 
                     <div class="form-group file upload">
                       <label for="image">Workshop Afbeelding</label> 
-                      <input type="file" name="image" id="image">
+                      <input type="file" name="file" id="image">
                     </div>
 
                     <div style="text-align:left;">

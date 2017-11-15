@@ -7,7 +7,6 @@ use Auth;
 use User;
 use App\Workshop;
 use Session;
-use Illuminate\Support\Facades\Input;
 
 class WorkshopController extends Controller
 {
@@ -31,9 +30,8 @@ class WorkshopController extends Controller
 			'length'    		=> 'required',
 			'participants'  => 'required',
 			'application'   => 'required|max:100',
-			//'image'      		=> 'required|mimes:jpeg,jpg,png|max:1000',
+			//'file'      		=> 'required|mimes:jpeg,jpg,png|max:1000',
 		]);
-
   	 
     $workshop->name = $request->name;
     $workshop->competences_id = '2';
@@ -41,7 +39,7 @@ class WorkshopController extends Controller
     $workshop->length = $request->length;
     $workshop->participants = $request->participants;
     $workshop->application = $request->application;
-    $workshop->imageUrl = $request->image;
+    $workshop->imageUrl = $request->file;
     $workshop->save();
 
     Session::flash('message', 'Workshop aangemaakt!');
