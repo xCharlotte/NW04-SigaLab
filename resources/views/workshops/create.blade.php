@@ -15,14 +15,14 @@ back</a></div>
             </div>
 
             <div class="panel-body">
-                @if (count($errors) > 0)
-                    <div class="alert alert-danger">
-                        <ul>
-                            @foreach ($errors->all() as $error)
-                                <li>{{ $error }}</li>
-                            @endforeach
-                        </ul>
-                    </div>
+              @if (count($errors) > 0)
+                  <div class="alert alert-danger">
+                      <ul>
+                          @foreach ($errors->all() as $error)
+                              <li>{{ $error }}</li>
+                          @endforeach
+                      </ul>
+                  </div>
                 @endif
 
                  <form method="POST" action="{{route('create_workshop')}}">
@@ -31,14 +31,14 @@ back</a></div>
                     <div class="form-group {{ $errors->has('name') ? ' has-errors' : '' }}">
                         <label for="name">Naam</label>
                         <input type="text" class="form-control" name="name"
-                            placeholder="Name" id="name"
+                            placeholder="naam" id="name"
                             value="{{ old('name') }}">
                     </div>
 
                     <div class="form-group {{ $errors->has('description') ? ' has-errors' : '' }}">
                       <label for="description">Beschrijving</label>
                       <textarea class="form-control" name="description"
-                        placeholder="description" id="description">
+                        placeholder="Beschrijving" id="description">
                         {{ old('description') }}
                       </textarea>
                     </div>
