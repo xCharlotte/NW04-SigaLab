@@ -18,3 +18,19 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+//admin prefix
+Route::prefix('admin')->group(function(){
+	//Create workshops
+	Route::post('/workshop/create', 'WorkshopController@create')->name('create_workshop');
+	//Read workshops
+	Route::get('/workshops', 'WorkshopController@index')->name('workshops');
+	Route::get('/workshop/read/{id}', 'WorkshopController@read')->name('read_workshop');
+	//Update workshops
+	Route::put('/workshop/update', 'WorkshopController@update')->name('update_workshop');
+	//Delete workshops
+	Route::del('/workshop/delete/{id}', 'WorkshopController@delete')->name('delete_workshop');
+});
+
+
+//CRUD - Create, Read, Update, Delete 
