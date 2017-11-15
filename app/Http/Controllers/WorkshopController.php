@@ -25,6 +25,14 @@ class WorkshopController extends Controller
   public function create(Request $request)
   {
   	$workshop = new Workshop(); 
+  	  $this->validate($request, [
+			'name'    			=> 'required|max:30',
+			'description'   => 'required',
+			'length'    		=> 'required',
+			'participants'  => 'required',
+			'application'   => 'required|max:100',
+			//'image'      		=> 'required|mimes:jpeg,jpg,png|max:1000',
+		]);
 
   	 
     $workshop->name = $request->name;
@@ -37,6 +45,7 @@ class WorkshopController extends Controller
     $workshop->save();
 
     Session::flash('message', 'Workshop aangemaakt!');
+    return redirect()->route('workshops');
 
 
   }

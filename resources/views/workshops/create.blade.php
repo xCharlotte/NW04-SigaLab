@@ -8,10 +8,9 @@
             <div class="alert alert-success">{{ Session::get('message') }}</div>
         @endif
         <div class="panel panel-default">
-            <div class="panel-heading">
-            Adding a workshop
-            <div  class="" style="float:right;"><a href="{{ route('workshops') }}" class="btn btn-success add"><i class="fa fa-arrow-left" aria-hidden="true"></i>
-back</a></div>
+            <div class="panel-heading">Adding a workshop</div>
+            <div class="panel-body">
+                <a href="{{ route('workshops') }}" class="btn btn-primary">Terug naar lijst</a>
             </div>
 
             <div class="panel-body">
@@ -69,8 +68,8 @@ back</a></div>
                       <input type="file" name="image" id="image">
                     </div>
 
-                    <div style="text-align:right;">
-                        <input type="submit" value="Opslaan" class="save btn button btn-primary"/>
+                    <div style="text-align:left;">
+                        <input type="submit" value="Workshop opslaan" class="save btn button btn-primary"/>
                     </div>
                </form>
             </div>
