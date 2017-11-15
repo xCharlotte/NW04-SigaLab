@@ -22,13 +22,13 @@ Route::get('/home', 'HomeController@index')->name('home');
 //admin prefix
 Route::prefix('admin')->group(function(){
 	//Create workshops
-	Route::get('/workshop/create', 'WorkshopController@addForm')->name('create_workshop_form');
+	Route::get('/workshop/create', 'WorkshopController@create_workshop_form')->name('create_workshop_form');
 	Route::post('/workshop/create', 'WorkshopController@create')->name('create_workshop');
 	//Read workshops
 	Route::get('/workshops', 'WorkshopController@index')->name('workshops');
 	Route::get('/workshop/read/{id}', 'WorkshopController@read')->name('read_workshop');
 	//Update workshops
-	Route::get('/workshop/update/{id}', 'WorkshopController@updateForm')->name('update_workshop_form');
+	Route::get('/workshop/update/{id}', 'WorkshopController@update_workshop_form')->name('update_workshop_form');
 	Route::put('/workshop/update', 'WorkshopController@update')->name('update_workshop');
 	//Delete workshops
 	Route::get('/workshop/delete/{id}', 'WorkshopController@delete')->name('delete_workshop');
