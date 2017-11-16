@@ -76,7 +76,7 @@ class WorkshopController extends Controller
 
   public function update(Request $request)
   {
-    $workshop = new Workshop(); 
+    // $workshop = new Workshop(); 
     
     $this->validate($request, [
       'name'          => 'required|max:30',
@@ -92,7 +92,9 @@ class WorkshopController extends Controller
       $request->file('file');
       $path = $request->file->store('storage/uploads','public');
     }
-     
+
+    $id = $request->id;
+    $workshop = Workshop::find($id); 
     $workshop->name = $request->name;
     $workshop->competences_id = '2';
     $workshop->description = $request->description;
@@ -105,5 +107,14 @@ class WorkshopController extends Controller
     Session::flash('message', 'Workshop gewijzigd!');
     return redirect()->route('workshops');
 
+  }
+
+  public function delete($id){
+    $workshop = Workshop::find($id);
+    $workshop->delete();
+
+    // redirect
+    Session::flash('message', 'Workshop verwijderd!');
+    return redirect()->route('workshops');
   }
 }

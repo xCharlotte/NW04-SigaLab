@@ -20,10 +20,12 @@
                     <div class="workshop">
                         <tr>
                             <td>
+                                <a href="{{ route('read_workshop', ['id' => $workshop->id])}}">
                                 <img src="{{ asset($workshop->imageUrl)}}" alt="{{ $workshop->name }}" class="workshop-img img-responsive" style="width:180px;"/>
                                 </a>
                             </td>
                             <td>{{ $workshop->name }}</td>
+                            <td><small>{{ $workshop->created_at->format('d m Y')}}</small></td>
                             <td>
                                 <a href="{{ route('update_workshop_form', ['id' => $workshop->id])}}">
                                     <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>

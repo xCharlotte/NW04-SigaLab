@@ -26,7 +26,8 @@
 
                  <form method="POST" action="{{route('update_workshop')}}" enctype="multipart/form-data">
                     <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                    
+                    <input type="hidden" name="id" value="{{ $workshop->id }}">
+
                     <div class="form-group {{ $errors->has('name') ? ' has-errors' : '' }}">
                         <label for="name">Naam</label>
                         <input type="text" class="form-control" name="name"
