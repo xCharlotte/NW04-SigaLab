@@ -36,10 +36,7 @@
 
                     <div class="form-group {{ $errors->has('description') ? ' has-errors' : '' }}">
                       <label for="description">Beschrijving</label>
-                      <textarea class="form-control" name="description"
-                        placeholder="Beschrijving" id="description">
-                        {{ old('description') }}
-                      </textarea>
+                      <textarea class="form-control" name="description" placeholder="Beschrijving" id="description">{{ old('description') }}</textarea>
                     </div>
 
                     <div class="form-group {{ $errors->has('length') ? ' has-errors' : '' }}">

@@ -3,30 +3,26 @@
 @section('content')
 <div class="container">
     <div class="panel panel-default">
-        <div class="panel-heading">Lijst met workshops</div>
-            <div class="panel-body">
-                <a href="{{route('create_workshop')}}" class="btn btn-primary">Workshop Toevoegen</a>
-            </div>
-
         <div class="panel-body">
-            <table class="table table-bordered">
-                <tr>
-                    <th>Workshop</th>
-                    <th>Toepassing</th>
-                    <th>Aangemaakt op</th>
-                    <th>Wijzigen</th>
-                </tr>
-                @foreach ($workshops as $workshop)
-                <tr>
-                    <td>{{ $workshop->name }}</td>
-                    <td>{{ $workshop->application }}</td>
-                    <td>{{ $workshop->created_at }}</td>
-                    <td><a href="{{ route('update_workshop_form', ['id' => $workshop->id])}}">
-                        <span class="glyphicon glyphicon-pencil" aria-hidden="true">Wijzigen</a></td>
+            <div class="workshopList front-end">
+                <div class="row">
+                    @foreach ($workshops as $workshop)
+                        <div class="col-md-4">
+                            <div class="workshop">
+                                <a href="{{ route('read_workshop', ['id' => $workshop->id])}}">
+                                    <img src="{{ asset($workshop->imageUrl)}}" alt="{{ $workshop->name }}" class="workshop-img img-responsive"/>
+                                </a>
+                                <h2>{{ $workshop->name }}</h2>
+                                {{-- <small>{{ $workshop->created_at->format('d m Y')}}</small> --}}
+                                <p>{{ str_limit($workshop->description,120) }}</p>   
 
-                </tr>
-                @endforeach
-            </table>
+
+                                {{-- $value = str_limit('The PHP framework for web artisans.', 7);         --}}
+                            </div>
+                        </div>
+                    @endforeach
+                </div>
+            </div>
         </div>
     </div> 
 </div>

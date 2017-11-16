@@ -14,6 +14,8 @@
 Route::get('/', function () {
     return view('welcome');
 });
+Route::get('/workshops', 'WorkshopController@index')->name('workshops');
+Route::get('/workshop/read/{id}', 'WorkshopController@read')->name('read_workshop');
 
 Auth::routes();
 
@@ -26,7 +28,7 @@ Route::prefix('admin')->group(function(){
 	Route::post('/workshop/create', 'WorkshopController@create')->name('create_workshop');
 	//Read workshops
 	Route::get('/workshops', 'WorkshopController@index')->name('workshops');
-	Route::get('/workshop/read/{id}', 'WorkshopController@read')->name('read_workshop');
+	//Route::get('/workshop/read/{id}', 'WorkshopController@read')->name('read_workshop');
 	//Update workshops
 	Route::get('/workshop/update/{id}', 'WorkshopController@update_workshop_form')->name('update_workshop_form');
 	Route::put('/workshop/update', 'WorkshopController@update')->name('update_workshop');
