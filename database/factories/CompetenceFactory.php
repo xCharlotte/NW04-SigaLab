@@ -4,9 +4,10 @@ use Faker\Generator as Faker;
 
 /* @var Illuminate\Database\Eloquent\Factory $factory */
 
-$factory->define(Model::class, function (Faker $faker) {
+$factory->define(App\Competence::class, function (Faker $faker) {
+
     return [
       'name' => $faker->name,
-      'desciption' => $faker->description,
+      'description' => $faker->realText($maxNbChars = 30),
     ];
 });
