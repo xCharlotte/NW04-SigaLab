@@ -15,6 +15,7 @@
                     <th>Workshop</th>
                     <th>Aangemaakt op</th>
                     <th>Wijzigen</th>
+                    <th>Verwijder</th>
                 </tr>
                 @foreach ($workshops as $workshop)
                     <div class="workshop">
@@ -31,7 +32,14 @@
                                     <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
                                     Wijzigen
                                 </a>
+                            </td>
                             <td>
+                                <a href="{{ route('delete_workshop', ['id' => $workshop->id])}}" 
+                                    onclick="return confirm('Weet je zeker dat je de Workshop wilt verwijderen?') ">
+                                    <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
+                                    Verwijder
+                                </a>
+                            </td>
                         </tr>
                     </div>
                 @endforeach

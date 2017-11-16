@@ -71,7 +71,6 @@ class WorkshopController extends Controller
 
     Session::flash('message', 'Workshop aangemaakt!');
     return redirect()->route('workshops');
-
   }
 
   public function update(Request $request)
@@ -109,11 +108,11 @@ class WorkshopController extends Controller
 
   }
 
-  public function delete($id){
+  public function delete($id)
+  {
     $workshop = Workshop::find($id);
     $workshop->delete();
 
-    // redirect
     Session::flash('message', 'Workshop verwijderd!');
     return redirect()->route('workshops');
   }
