@@ -63,6 +63,7 @@
 
                     <div class="form-group file upload">
                       <label for="image">Workshop Afbeelding</label> 
+                      <img src="{{ asset($workshop->imageUrl)}}" alt="{{ $workshop->name }}" class="workshop-img img-responsive" style="width:180px;"/>
                       <input type="file" name="file" id="image">
                     </div>
 

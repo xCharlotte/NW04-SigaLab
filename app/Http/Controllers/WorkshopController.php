@@ -83,7 +83,7 @@ class WorkshopController extends Controller
       'length'        => 'required',
       'participants'  => 'required',
       'application'   => 'required|max:100',
-      'file'          => 'required|mimes:jpeg,jpg,png|max:1000',
+      'file'          => 'mimes:jpeg,jpg,png|max:1000',
     ]);
 
     if($request->hasFile('file'))
@@ -100,7 +100,8 @@ class WorkshopController extends Controller
     $workshop->length = $request->length;
     $workshop->participants = $request->participants;
     $workshop->application = $request->application;
-    $workshop->imageUrl = $path;
+    
+    if(isset($workshop->imageUrl)) $workshop->imageUrl = $path; 
     $workshop->save();
 
     Session::flash('message', 'Workshop gewijzigd!');
