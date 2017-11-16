@@ -7,6 +7,7 @@ use Auth;
 use User;
 use App\Workshop;
 use Session;
+use Illuminate\Support\Facades\Storage;
 
 class WorkshopController extends Controller
 {
@@ -30,8 +31,17 @@ class WorkshopController extends Controller
 			'length'    		=> 'required',
 			'participants'  => 'required',
 			'application'   => 'required|max:100',
-			//'file'      		=> 'required|mimes:jpeg,jpg,png|max:1000',
+			'file'      		=> 'required|mimes:jpeg,jpg,png|max:1000',
 		]);
+
+
+
+    if($request->hasFile('file'))
+    {
+      $request->file('file');
+      $path = $request->file->store('storage/uploads','public');
+    }
+     
   	 
     $workshop->name = $request->name;
     $workshop->competences_id = '2';
@@ -39,7 +49,10 @@ class WorkshopController extends Controller
     $workshop->length = $request->length;
     $workshop->participants = $request->participants;
     $workshop->application = $request->application;
-    $workshop->imageUrl = $request->file;
+    //File imageUrl nog ff fixen. 
+    $workshop->imageUrl = $path;
+
+
     $workshop->save();
 
     Session::flash('message', 'Workshop aangemaakt!');
