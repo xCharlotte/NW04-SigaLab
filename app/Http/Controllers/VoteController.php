@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Competence;
 
 class VoteController extends Controller
 {
@@ -13,7 +14,8 @@ class VoteController extends Controller
      */
     public function index()
     {
-        return view('vote');
+      $competences = Competence::all();
+        return view('vote', compact('competences'));
     }
 
     /**

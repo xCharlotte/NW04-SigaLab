@@ -4,8 +4,14 @@
 
 <div class="container">
   <div class="row">
-    <div class="col-sm">
-      <h1>HAllo</h1>
-        <img src="{{ asset('images/communication.png') }}" class="img-fluid">
+
+        @foreach ($competences as $competence)
+          <div class="col-md-3">
+            {{ $competence->name }}
+            <img src="{{ $competence->imageUrl }}" class="img-fluid img-responsive">
+            <input type="hidden" name="id" value="{{$competence->id}}"/>
+            <input type="hidden" name="votes" value=""/>
+          </div>
+        @endforeach
   </div>
 @endsection

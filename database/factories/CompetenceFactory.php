@@ -9,5 +9,6 @@ $factory->define(App\Competence::class, function (Faker $faker) {
     return [
       'name' => $faker->name,
       'description' => $faker->realText($maxNbChars = 30),
+      'imageUrl' => $faker->imageUrl($width = 640, $height = 480),
     ];
 });
