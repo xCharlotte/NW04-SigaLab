@@ -15,12 +15,16 @@
                         <p>{{ $workshop->description }}</p>  
                         <table class="table table-bordered">
                             <tr>
-                                <th></th>
-                                <td>{{ $workshop->name }}</td>
+                                <th>Duur</th>
+                                <td>{{ $workshop->length }}</td>
                             </tr>
                             <tr>
-                                <th></th>
-                                <td>{{ $workshop->name }}</td>
+                                <th>Aantal deelnemers</th>
+                                <td>{{ $workshop->participants }}</td>
+                            </tr>
+                            <tr>
+                                <th>Toepassing</th>
+                                <td>{{ $workshop->application }}</td>
                             </tr>
                         </table>
                     </div>
