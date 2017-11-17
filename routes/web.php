@@ -19,10 +19,14 @@ Route::get('/workshop/read/{id}', 'WorkshopController@read')->name('read_worksho
 
 Auth::routes();
 
+
 Route::get('/home', 'HomeController@index')->name('home');
 
 //admin prefix
 Route::prefix('admin')->group(function(){
+   Route::get('/dashboard', function () {
+      return view('dashboard');
+  });
 	//Create workshops
 	Route::get('/workshop/create', 'WorkshopController@create_workshop_form')->name('create_workshop_form');
 	Route::post('/workshop/create', 'WorkshopController@create')->name('create_workshop');
@@ -35,6 +39,5 @@ Route::prefix('admin')->group(function(){
 	//Delete workshops
 	Route::get('/workshop/delete/{id}', 'WorkshopController@delete')->name('delete_workshop');
 });
-
 
 //CRUD - Create, Read, Update, Delete 
