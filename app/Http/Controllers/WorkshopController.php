@@ -112,6 +112,9 @@ class WorkshopController extends Controller
   public function delete($id)
   {
     $workshop = Workshop::find($id);
+    $img = $workshop->imageUrl; 
+    //Storage::delete($img);
+    Storage::disk('public')->delete($img);
     $workshop->delete();
 
     Session::flash('message', 'Workshop verwijderd!');
