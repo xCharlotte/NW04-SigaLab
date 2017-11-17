@@ -2,6 +2,6 @@
 
 @section('content')
 
-  <h1>Hallo</h1>
+  <h1>Dashboard admin</h1>
 
 @endsection
