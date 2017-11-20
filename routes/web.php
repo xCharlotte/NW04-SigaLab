@@ -19,7 +19,8 @@ Auth::routes();
 
 Route::prefix('admin')->group(function () {
 
-  Route::get('/dashboard', function () {
-      return view('dashboard');
-  });
+  Route::get('/dashboard', ['middleware' => 'auth', function () {
+      return view('admin/dashboard');
+  }]);
+
 });
