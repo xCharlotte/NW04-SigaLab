@@ -19,7 +19,6 @@ Route::get('/workshop/read/{id}', 'WorkshopController@read')->name('read_worksho
 
 Auth::routes();
 
-
 Route::get('/home', 'HomeController@index')->name('home');
 
 //admin prefix
@@ -38,6 +37,10 @@ Route::prefix('admin')->group(function(){
 	Route::post('/workshop/update', 'WorkshopController@update')->name('update_workshop');
 	//Delete workshops
 	Route::get('/workshop/delete/{id}', 'WorkshopController@delete')->name('delete_workshop');
+=======
+  Route::get('/dashboard', ['middleware' => 'auth', function () {
+      return view('admin/dashboard');
+  }]);
 });
 
 //CRUD - Create, Read, Update, Delete 
