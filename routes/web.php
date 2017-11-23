@@ -25,7 +25,8 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::prefix('admin')->group(function(){
   Route::get('/dashboard', ['middleware' => 'auth', function () {
       return view('admin/dashboard');
-      
+  }]);
+
 	//Create workshops
 	Route::get('/workshop/create', 'WorkshopController@create_workshop_form')->name('create_workshop_form');
 	Route::post('/workshop/create', 'WorkshopController@create')->name('create_workshop');
@@ -37,7 +38,6 @@ Route::prefix('admin')->group(function(){
 	Route::post('/workshop/update', 'WorkshopController@update')->name('update_workshop');
 	//Delete workshops
 	Route::get('/workshop/delete/{id}', 'WorkshopController@delete')->name('delete_workshop');
-  }]);
 });
 
 //CRUD - Create, Read, Update, Delete
