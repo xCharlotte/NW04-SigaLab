@@ -20,13 +20,15 @@ Route::get('/workshop/read/{id}', 'WorkshopController@read')->name('read_worksho
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
-Route::get('/admin/dashboard', 'AdminController@index')->name('admin');
 
-// //admin prefix
-// Route::prefix('admin')->group(function(){
-//   Route::get('/dashboard', ['middleware' => 'auth', function () {
-//       return view('admin/dashboard');
-//   }]);
+// admin prefix
+Route::prefix('admin')->group(function() {
+  // Route::get('/dashboard', ['middleware' => 'auth', function () {
+  //     return view('admin/dashboard');
+    Route::get('/dashboard', 'AdminController@index')->name('admin.dashboard');
+    Route::get('/login', 'Auth\AdminLoginController@showLoginForm')->name('admin.login');
+    Route::post('/login', 'Auth\AdminLoginController@login')->name('admin.login.submit');
+  });
 //
 // 	//Create workshops
 // 	Route::get('/workshop/create', 'WorkshopController@create_workshop_form')->name('create_workshop_form');
