@@ -20,6 +20,7 @@ Route::get('/workshop/read/{id}', 'WorkshopController@read')->name('read_worksho
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/retro', 'RetroController@index')->name('retro');
 
 //admin prefix
 Route::prefix('admin')->group(function(){
