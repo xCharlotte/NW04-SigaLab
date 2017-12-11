@@ -25,7 +25,7 @@ class AdminLoginController extends Controller
       'email' => 'required|email',
       'password' => 'required|min:4'
     ]);
-    
+
     // Attempt to log user in
     if (Auth::guard('admin')->attempt(['email' => $request->email, 'password' => $request->password], $request->remember)) {
       // If succesfull redirect to intended location
